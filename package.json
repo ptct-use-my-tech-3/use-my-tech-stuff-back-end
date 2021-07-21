@@ -1,0 +1,19 @@
+{
+  "name": "use-my-tech-stuff-back-end",
+  "version": "1.0.0",
+  "description": "back end for use-my-tech-stuff app",
+  
+  "scripts": {
+    "test": "cross-env Node_ENV=testing jest --watchAll --verbose --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptct-use-my-tech-3/use-my-tech-stuff-back-end.git"
+  },
+  "author": "Stephen Aranda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ptct-use-my-tech-3/use-my-tech-stuff-back-end/issues"
+  },
+  "homepage": "https://github.com/ptct-use-my-tech-3/use-my-tech-stuff-back-end#readme"
+}
