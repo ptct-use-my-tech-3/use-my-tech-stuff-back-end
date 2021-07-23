@@ -40,11 +40,11 @@ const checkUsernameExists=(req,res,next)=>{
 const checkUsernameFree=(req,res,next)=>{
     User.findBy({username:req.body.username})
     .then(rows=>{
-        if(!rows.length){
-            next()
+        if(rows.username){
+            res.status(422).json("Username is already taken")            
         }
         else{
-            res.status(401).json("Username is already taken")
+            next()            
         }
     })
     .catch(err=>{

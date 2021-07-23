@@ -3,7 +3,7 @@ const db = require('../../data/dbConfig')
 const findBy=(filter)=>{
     return db('users')
     .where(filter)
-    .first('users.user_id','users.username','users.password','users.phoneNumber')
+    .first('users.user_id','users.username','users.password')
 
 }
 
@@ -18,8 +18,7 @@ const update=(user_id,updatedChanges)=>{
     .where({user_id})
     .update({
         username:updatedChanges.username,
-        password:updatedChanges.password,
-        phoneNumber:updatedChanges.phoneNumber
+        password:updatedChanges.password        
     })
     .then(([id])=>findBy(id))
 }
