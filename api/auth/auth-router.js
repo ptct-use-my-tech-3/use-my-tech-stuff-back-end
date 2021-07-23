@@ -5,8 +5,8 @@ const { JWT_SECRET} = require('../secrets/index')
 const {
        checkUsernameExists, 
        checkForMissingUsernameAndPassword,       
-       checkUsernameFree,
-       checkForMissingUsernameAndPassword} = require('../auth/auth-middleware')
+       checkUsernameFree
+       } = require('../auth/auth-middleware')
 const User = require('../users/users-model')
 
 
