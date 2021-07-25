@@ -7,12 +7,12 @@ router.post('/',(req,res,next)=>{
     const {name,description,cost,image,tags}= req.body
 
     Items.add({
-        name:name,
-        description:description,
-        cost:cost,
-        image:image,
-        tags:tags,
-        user_id:user_id
+        item_name:name,
+        item_description:description,
+        item_cost:cost,
+        item_image:image,
+        item_tags:tags,
+        item_user_id:user_id
     })
     .then(success=>{
         res.status(201).json(success)
@@ -42,11 +42,11 @@ router.put('/:item_id',(req,res,next)=>{
     const {name,description,cost,image,tags}= req.body
 
     Items.update(item_id,{
-        name:name,
-        description:description,
-        cost:cost,
-        image:image,
-        tags:tags
+        item_name:name,
+        item_description:description,
+        item_cost:cost,
+        item_image:image,
+        item_tags:tags
     })
     .then(success=>{
         res.status(200).json(success)
@@ -55,7 +55,7 @@ router.put('/:item_id',(req,res,next)=>{
 })
 
 
-router.delete('/item_id',(req,res,next)=>{
+router.delete('/:item_id',(req,res,next)=>{
     const {item_id} = req.params
     Items.remove(item_id)
     .then(success=>{

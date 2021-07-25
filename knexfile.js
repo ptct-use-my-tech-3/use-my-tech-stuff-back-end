@@ -9,7 +9,7 @@ if(process.env.DATA_URL){
 const sharedConfig = {
     client: 'pg',
     migrations: { directory: './api/data/migrations' },
-    seeds: { directory: './api/data/seeds' },
+    seeds: { directory: './api/data/seeds' }    
   }
   
   module.exports = {

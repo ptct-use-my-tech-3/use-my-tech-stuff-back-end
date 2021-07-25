@@ -10,7 +10,7 @@ const add = (item)=>{
 const find=(user_id)=>{
     return db('items')
            .where(user_id)
-           .select('name','description','cost','image','tags')
+           .select('item_name','item_description','item_cost','item_image','item_tags')
            .orderBy('item_id')
 }
 
@@ -18,7 +18,7 @@ const find=(user_id)=>{
 const findBy=(filter)=>{
     return db ('items')
            .where(filter)
-           .first('name','description','cost','image','tags')
+           .first('item_name','item_description','item_cost','item_image','item_tags')
            
 }
 
@@ -26,11 +26,11 @@ const update=(item_id,updatedItem)=>{
     return db('items')
            .where({item_id:item_id})
            .update({
-               name:updatedItem.name,
-               description:updatedItem.description,
-               cost:updatedItem.cost,
-               image:updatedItem.image,
-               tags:updatedItem.tages
+               item_name:updatedItem.name,
+               item_description:updatedItem.description,
+               item_cost:updatedItem.cost,
+               item_image:updatedItem.image,
+               item_tags:updatedItem.tags
            })
            .then(([id])=>findBy(id))
 }
