@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const pg=require('pg')
 
-if(process.env.DATA_URL){
+if(process.env.DATABASE_URL){
     pg.defaults.ssl={rejectUnauthorized:false}
 }
 
