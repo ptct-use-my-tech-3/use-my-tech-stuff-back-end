@@ -3,7 +3,7 @@ require('dotenv').config()
 const pg=require('pg')
 
 if(process.env.DATA_URL){
-    pg.defaults.ssl={rejectUnauthorized:true}
+    pg.defaults.ssl={rejectUnauthorized:false}
 }
 
 const sharedConfig = {

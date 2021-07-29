@@ -4,6 +4,7 @@ const User = require('../users/users-model')
 
 const restricted=(req,res,next)=>{
     const token = req.headers.authorization
+    
 
     if(!token){
         res.status(401).json("Token required")
@@ -11,9 +12,11 @@ const restricted=(req,res,next)=>{
     else{
         jwt.verify(token,JWT_SECRET,(err,decoded)=>{
             if(err){
+                
                 res.status(401).json("Token invalid")
             }
             else{
+                
                 req.decodedToken = decoded
                 next()
             }
@@ -22,7 +25,8 @@ const restricted=(req,res,next)=>{
 }
 
 const checkUsernameExists=(req,res,next)=>{
-    User.findBy({username:req.body.username})
+    
+    User.findByUsername(req.body.username)
     .then(rows=>{
         if(rows.length){
             req.userData = rows[0]
@@ -38,7 +42,9 @@ const checkUsernameExists=(req,res,next)=>{
 }
 
 const checkUsernameFree=(req,res,next)=>{
-    User.findBy({username:req.body.username})
+    const {username} = req.body
+    
+    User.findByUsername(username)
     .then(rows=>{
         if(rows.username){
             res.status(422).json("Username is already taken")            
@@ -55,9 +61,11 @@ const checkUsernameFree=(req,res,next)=>{
 
 const checkForMissingUsernameAndPassword=(req,res,next)=>{
     const {username,password}=req.body
+    
+    
     if(!username || username==="" || 
        !password || password ===""){
-           next({status:400,message:"username and password are required"})
+           res.status(400).json("username and password are required")
 
     }
     else{
